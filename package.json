@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/thinkkoa/think_apollo",
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "mocha": "^6.2.2",
-    "supertest": "^4.0.2"
+    "eslint": "^6.8.0"
   },
   "dependencies": {
     "globby": "^11.0.0",
-    "think_lib": "^2.x.x"
+    "node-apollo-client": "^0.1.7",
+    "think_lib": "^2.x.x",
+    "think_logger": "^2.2.4"
   }
 }
