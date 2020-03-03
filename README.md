@@ -64,7 +64,7 @@ import { Koatty } from "../Koatty";
 const apollo = require("think_apollo");
 
 @Middleware()
-export class Trace {
+export class Apollo {
     run(options: any, app: Koatty) {
         return apollo(options, app);
     }
@@ -73,10 +73,10 @@ export class Trace {
 
 3、项目中间件配置 config/middleware.js:
 ```
-list: [...,'apollo'], //加载的中间件列表
+list: [...,'Apollo'], //加载的中间件列表
 config: { //中间件配置
     ...,
-    apollo: {
+    Apollo: {
         config_key: 'db', // Apollo configuration will overwrite the configuration key, the default value is 'db', corresponding to the configuration file 'db.ts'
         host: 'http://127.0.0.1:8080', //your-config-server-url
         appId: 'test', //your-config-appId
