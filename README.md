@@ -71,7 +71,7 @@ export class Apollo {
 }
 ```
 
-3、项目中间件配置 config/middleware.js:
+3、项目中间件配置 config/middleware.ts:
 ```
 list: [...,'Apollo'], //加载的中间件列表
 config: { //中间件配置
