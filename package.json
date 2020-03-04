@@ -1,6 +1,6 @@
 {
   "name": "think_apollo",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Apollo Middleware for ThinkKoa.",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "ctrip-apollo": "^4.4.3",
-    "think_lib": "^2.x.x",
+    "think_lib": "^2.2.13",
     "think_logger": "^2.2.4"
   }
 }
