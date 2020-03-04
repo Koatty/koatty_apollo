@@ -34,7 +34,6 @@ list: [...,'apollo'], //加载的中间件列表
 config: { //中间件配置
     ...,
     apollo: {
-        config_key: 'db', // Apollo configuration will overwrite the configuration key, the default value is 'db', corresponding to the configuration file 'db.ts'
         host: 'http://127.0.0.1:8080', //your-config-server-url
         appId: 'test', //your-config-appId
         clusterName: 'default', //cluster-name
@@ -42,7 +41,7 @@ config: { //中间件配置
         enableUpdateNotification: true, // boolean=true set to false to disable update notification.
         enableFetch: true, //boolean=false set to true to enable the feature
         fetchTimeout: 30000, // number=30000 timeout in milliseconds before the initial fetch or interval fetch result in an FETCH_TIMEOUT error.
-        fetchInterval: 5 * 60 * 1000, // number = 5 * 60 * 1000 interval in milliseconds to pull the new configurations.Defaults to 5 minutes.Setting this option to 0 will disable the feature.
+        fetchInterval: 3 * 60 * 1000, // number = 3 * 60 * 1000 interval in milliseconds to pull the new configurations.Defaults to 5 minutes.Setting this option to 0 will disable the feature.
         fetchCachedConfig: true, // boolean = true whether refresh configurations by fetching the restful API with caches.Defaults to true.If you want to always fetch the latest configurations(not recommend), set the option to false
     }
 }
@@ -77,7 +76,6 @@ list: [...,'Apollo'], //加载的中间件列表
 config: { //中间件配置
     ...,
     Apollo: {
-        config_key: 'db', // Apollo configuration will overwrite the configuration key, the default value is 'db', corresponding to the configuration file 'db.ts'
         host: 'http://127.0.0.1:8080', //your-config-server-url
         appId: 'test', //your-config-appId
         clusterName: 'default', //cluster-name
@@ -85,7 +83,7 @@ config: { //中间件配置
         enableUpdateNotification: true, // boolean=true set to false to disable update notification.
         enableFetch: true, //boolean=false set to true to enable the feature
         fetchTimeout: 30000, // number=30000 timeout in milliseconds before the initial fetch or interval fetch result in an FETCH_TIMEOUT error.
-        fetchInterval: 5 * 60 * 1000, // number = 5 * 60 * 1000 interval in milliseconds to pull the new configurations.Defaults to 5 minutes.Setting this option to 0 will disable the feature.
+        fetchInterval: 3 * 60 * 1000, // number = 3 * 60 * 1000 interval in milliseconds to pull the new configurations.Defaults to 5 minutes.Setting this option to 0 will disable the feature.
         fetchCachedConfig: true, // boolean = true whether refresh configurations by fetching the restful API with caches.Defaults to true.If you want to always fetch the latest configurations(not recommend), set the option to false
     }
 }
