@@ -24,7 +24,7 @@ const defaultOptions = {
     fetchCachedConfig: true, // boolean = true whether refresh configurations by fetching the restful API with caches.Defaults to true.If you want to always fetch the latest configurations(not recommend), set the option to false
 };
 
-module.exports = function (options, app) {
+module.exports = async function (options, app) {
     options = options ? lib.extend(defaultOptions, options, true) : defaultOptions;
 
     /**
@@ -107,10 +107,13 @@ module.exports = function (options, app) {
 
         return apolloClient;
     }
-    app.once('appReady', async () => {
-        const client = await initApolo(options, app);
-        lib.define(app, "apolloClient", client, true);
-    });
+    // app.once('appReady', async () => {
+    //     const client = await initApolo(options, app);
+    //     lib.define(app, "apolloClient", client, true);
+    // });
+
+    const client = await initApolo(options, app);
+    lib.define(app, "apolloClient", client, true);
 
     return async function (ctx, next) {
         if (!app.apolloClient || !app.apolloClient._ready) {
