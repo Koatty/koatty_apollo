@@ -1,14 +1,15 @@
 {
   "name": "think_apollo",
-  "version": "1.2.1",
-  "description": "Apollo Middleware for ThinkKoa.",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Apollo Plugin for Koatty.",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "npm run eslint",
-    "eslint": "eslint src"
+    "build": "del-cli --force dist && tsc",
+    "prepublishOnly": "npm test && npm run build",
+    "test": "tslint 'src/**/*.ts'"
   },
   "engines": {
-    "node": ">8.0.0"
+    "node": ">10.0.0"
   },
   "author": "richenlin",
   "license": "MIT",
@@ -17,11 +18,21 @@
   },
   "homepage": "https://github.com/thinkkoa/think_apollo",
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "@types/koa": "^2.x.x",
+    "@types/lodash": "^4.x.x",
+    "@types/node": "^12.x.x",
+    "del-cli": "^3.0.1",
+    "koatty": "^2.x.x",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "tslint-config-alloy": "^0.2.1",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "ctrip-apollo": "^4.4.3",
-    "think_lib": "^2.2.13",
-    "think_logger": "^2.2.4"
+    "reflect-metadata": "^0.1.13",
+    "think_lib": "^2.x.x",
+    "think_logger": "^2.x.x",
+    "tslib": "^1.11.2"
   }
 }
