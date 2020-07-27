@@ -1,6 +1,6 @@
 {
   "name": "think_apollo",
-  "version": "2.0.0",
+  "version": "2.0.3",
   "description": "Apollo Plugin for Koatty.",
   "main": "./dist/index.js",
   "scripts": {

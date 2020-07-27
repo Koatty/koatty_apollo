@@ -1,7 +1,7 @@
 /*
  * @Author: richen
  * @Date: 2020-07-27 11:32:15
- * @LastEditTime: 2020-07-27 14:57:55
+ * @LastEditTime: 2020-07-27 16:05:31
  * @Description:
  * @Copyright (c) - <richenlin(at)gmail.com>
  */
@@ -143,9 +143,9 @@ export async function PluginApollo(options: PluginOptions, app: Koatty) {
         return initApolo(opt, app);
     });
 
-    await initApolo(options, app).catch((err: Error) => {
-        logger.error("Apollo configuration center initialization error! ", err.stack);
-        app.emit("apolloRetry");
+    await initApolo(options, app).catch((err: any) => {
+        logger.error("Apollo configuration center initialization error.", err);
+        app.emit("apolloRetry", options, app);
         return null;
     });
 }
