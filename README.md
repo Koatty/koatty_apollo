@@ -3,7 +3,7 @@
 
 [![npm version](https://badge.fury.io/js/think_apollo.svg)](https://badge.fury.io/js/think_apollo)
 
-Apollo Plugin for ThinkKoa.
+Apollo Plugin for Koatty.
 
 # 安装
 -----
