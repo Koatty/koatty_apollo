@@ -9,7 +9,7 @@ Apollo Plugin for Koatty.
 -----
 
 ```
-npm i think_apollo
+npm i koatty_apollo
 ```
 
 # 使用
@@ -27,12 +27,12 @@ koatty plugin apollo;
 
 ```
 import { Koatty, Plugin, IPlugin } from "koatty";
-import { PluginApollo } from "think_apollo";
+import Apollo from "koatty_apollo";
 
 @Plugin()
 export class ApolloPlugin implements IPlugin {
     run(options: any, app: Koatty) {
-        return PluginApollo(options, app);
+        return Apollo(options, app);
     }
 }
 ```

@@ -1,13 +1,12 @@
 /*
  * @Author: richen
  * @Date: 2020-07-27 11:32:15
- * @LastEditTime: 2020-07-27 20:33:37
+ * @LastEditTime: 2020-12-23 19:57:37
  * @Description:
  * @Copyright (c) - <richenlin(at)gmail.com>
  */
-import { Koatty } from "koatty";
-import helper from 'think_lib';
-import logger from 'think_logger';
+import * as helper from 'koatty_lib';
+import { DefaultLogger as logger } from 'koatty_logger';
 const apollo = require("ctrip-apollo");
 
 interface PluginOptions {
@@ -58,10 +57,10 @@ const delay = function (ms = 1000) {
  *
  * @export
  * @param {PluginOptions} options
- * @param {Koatty} app
+ * @param {Koatty} app Koatty or Koa instance
  */
-export async function PluginApollo(options: PluginOptions, app: Koatty) {
-    options = options ? helper.extend(defaultOptions, options, true) : defaultOptions;
+const plugin = async function (options: PluginOptions, app: any) {
+    const opt = { ...defaultOptions, ...options };
 
     /**
      * 
@@ -105,7 +104,7 @@ export async function PluginApollo(options: PluginOptions, app: Koatty) {
                 app.setMap("configs", appConfigs);
             }
         } catch (err) {
-            logger.error(err.stack || err);
+            logger.Error(err.stack || err);
         }
     };
 
@@ -115,12 +114,12 @@ export async function PluginApollo(options: PluginOptions, app: Koatty) {
      * @param {*} opt
      * @param {*} app
      */
-    const initApolo = async function (opt: any, app: Koatty) {
+    const initApollo = async function (opt: any, app: any) {
         // Instantiate Apollo
         const apolloClient = apollo(opt).namespace(opt.namespace, 'JSON');
         if (opt.enableUpdateNotification) {
             apolloClient.on('change', ({ key, oldValue, newValue }: UpdateNotification) => {
-                logger.info(`Apollo configuration key ${key} has been refreshed.`);
+                logger.Info(`Apollo configuration key ${key} has been refreshed.`);
                 reFreshConfig({ [key]: newValue });
             });
         }
@@ -133,22 +132,24 @@ export async function PluginApollo(options: PluginOptions, app: Koatty) {
         if (!helper.isEmpty(apolloConfigs)) {
             reFreshConfig(apolloConfigs);
         }
-        logger.info('Apollo configuration center initialization is complete.');
+        logger.Info('Apollo configuration center initialization is complete.');
         helper.define(app, "apolloClient", apolloClient, true);
 
 
         return apolloClient;
     };
-    helper.define(app, "initApolo", initApolo, true);
+    helper.define(app, "initApollo", initApollo, true);
 
-    const client = await initApolo(options, app).catch((err: any) => {
-        logger.error("Apollo configuration center initialization error.", err);
+    const client = await initApollo(opt, app).catch((err: any) => {
+        logger.Error("Apollo configuration center initialization error.", err);
         // app.emit("apolloRetry");
     });
 
     // retry
     client.on("fetch-error", async function () {
         // await delay(5000);
-        return initApolo(options, app);
+        return initApollo(opt, app);
     });
-}
+};
+
+export default plugin;

@@ -1,6 +1,6 @@
 {
   "name": "think_apollo",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Apollo Plugin for Koatty.",
   "main": "./dist/index.js",
   "scripts": {
@@ -30,9 +30,9 @@
   },
   "dependencies": {
     "ctrip-apollo": "^4.4.3",
+    "koatty_lib": "^1.x.x",
+    "koatty_logger": "^1.x.x",
     "reflect-metadata": "^0.1.13",
-    "think_lib": "^2.x.x",
-    "think_logger": "^2.x.x",
     "tslib": "^1.11.2"
   }
 }
