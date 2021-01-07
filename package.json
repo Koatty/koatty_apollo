@@ -1,6 +1,6 @@
 {
-  "name": "think_apollo",
-  "version": "2.1.0",
+  "name": "koatty_apollo",
+  "version": "2.1.2",
   "description": "Apollo Plugin for Koatty.",
   "main": "./dist/index.js",
   "scripts": {
@@ -14,9 +14,9 @@
   "author": "richenlin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thinkkoa/think_apollo/issues"
+    "url": "https://github.com/koatty/koatty_apollo/issues"
   },
-  "homepage": "https://github.com/thinkkoa/think_apollo",
+  "homepage": "https://github.com/koatty/koatty_apollo",
   "devDependencies": {
     "@types/koa": "^2.x.x",
     "@types/lodash": "^4.x.x",

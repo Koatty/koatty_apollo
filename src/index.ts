@@ -1,7 +1,7 @@
 /*
  * @Author: richen
  * @Date: 2020-07-27 11:32:15
- * @LastEditTime: 2020-12-23 19:57:37
+ * @LastEditTime: 2020-12-24 15:28:13
  * @Description:
  * @Copyright (c) - <richenlin(at)gmail.com>
  */
@@ -59,7 +59,7 @@ const delay = function (ms = 1000) {
  * @param {PluginOptions} options
  * @param {Koatty} app Koatty or Koa instance
  */
-const plugin = async function (options: PluginOptions, app: any) {
+export async function PluginApollo(options: PluginOptions, app: any) {
     const opt = { ...defaultOptions, ...options };
 
     /**
@@ -150,6 +150,4 @@ const plugin = async function (options: PluginOptions, app: any) {
         // await delay(5000);
         return initApollo(opt, app);
     });
-};
-
-export default plugin;
+}
