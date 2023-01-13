@@ -1,6 +1,6 @@
 {
   "name": "koatty_apollo",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Apollo Plugin for Koatty.",
   "main": "./dist/index.js",
   "scripts": {
