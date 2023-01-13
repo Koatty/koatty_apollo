@@ -8,6 +8,7 @@
     "eslint": "eslint --ext .ts,.js ./",
     "prepublishOnly": "npm test && npm run build",
     "prerelease": "npm test && npm run build",
+    "pub": "git push --follow-tags origin && npm publish",
     "release": "npm run prepublishOnly && standard-version",
     "test": "npm run eslint && jest --passWithNoTests"
   },
@@ -43,7 +44,7 @@
   "dependencies": {
     "ctrip-apollo": "^4.5.1",
     "koatty_lib": "^1.x.x",
-    "koatty_logger": "^1.x.x",
+    "koatty_logger": "^2.x.x",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
